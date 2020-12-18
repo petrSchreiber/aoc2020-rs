@@ -1,5 +1,9 @@
-# aoc2020-rs
-Advent of Code 2020, Rust lang.
+# aoc2020-cpp
+Advent of Code 2020, learning steps in Rust lang.
 
-## How to use
-Simply run `cargo run` to run the implemented solutions.
+**WARNING:** This repository contains Rust code written by person learning the language, do not use as reference of how it should be done!
+
+## How to build
+```
+cargo build
+```

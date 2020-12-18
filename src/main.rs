@@ -1,20 +1,33 @@
+use structopt::StructOpt;
+
 mod day01;
 
+#[derive(Debug, StructOpt)]
+#[structopt(name = "Advent of Code 2020", about = "Yearly challenge")]
+struct CommandLineParams {
+    #[structopt(short = "-d", long)]
+    day: i32,
+
+    input_file: String,
+}
+
 fn main() {
+    let params = CommandLineParams::from_args();
+
     println!("Advent of Code 2020");
     println!();
 
-    println!("-= Day 01 =-");
-    let day01_input = "data\\input_01A.txt";
-
-    match day01::solution::get_multiple_of_two_items_which_sum_2020(day01_input) {
-        Ok(result) => {
-            println!("Result of part A: {:?}", result);
-            0
+    match params.day {
+        1 => match day01::solve(&params.input_file) {
+            Ok(()) => (),
+            Err(error) => {
+                println!("Problem found: {:?}", error);
+                std::process::exit(1);
+            }
         },
-        Err(error) => {
-            println!("Problem opening the file {:?}: {:?}", day01_input, error);
-            1
+        _ => {
+            println!("Day {:?} not implemented.", params.day);
+            std::process::exit(1);
         }
-    };
+    }
 }

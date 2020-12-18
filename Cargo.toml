@@ -5,3 +5,4 @@ authors = ["Petr Schreiber <petrschreiber@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+structopt = { version = "0.3", default-features = false }
